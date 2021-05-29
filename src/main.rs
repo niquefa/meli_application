@@ -12,7 +12,7 @@ body {
     background-color: #87CEFA;
 }
 </style></head><body>
-Yukgaejang :)!</br>
+Hello world  :)!</br>
 </body></html>"#;
 
 pub mod built_info {
