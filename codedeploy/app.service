@@ -1,0 +1,13 @@
+[Unit]
+Description=app
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/opt/app/test_pipeline
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=app_hello
+
+[Install]
+WantedBy=multi-user.target
