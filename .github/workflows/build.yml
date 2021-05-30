@@ -17,9 +17,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Make artifact directory and database credentials
+      - name: Make artifact directory
+        run: mkdir -p ./artifacts/python_explorations
+
+      - name: Set databse credentials
         run: |
-          mkdir -p ./artifacts/python_explorations
           touch codedeploy/app.env
           echo "POSTGRES_HOST=${{ secrets.POSTGRES_HOST }}" >> codedeploy/app.env
           echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> codedeploy/app.env
@@ -27,9 +29,7 @@ jobs:
           echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> codedeploy/app.env
 
       - name: Create Zip File
-        uses: montudor/action-zip@v0.1.1
-        with:
-          args: zip -qq -rj ./artifacts/python_explorations/app.zip . -i "codedeploy/*" app
+        run: zip -rj ./artifacts/python_explorations/app.zip codedeploy/* app
 
       - name: S3 Sync
         uses: jakejarvis/s3-sync-action@v0.5.1
