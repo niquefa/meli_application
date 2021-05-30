@@ -1,13 +1,13 @@
 [Unit]
-Description=app
+Description=Predictor
+After=network.target
 
 [Service]
 Type=simple
 Restart=always
-ExecStart=/opt/app/test_pipeline
-StandardOutput=syslog
-StandardError=syslog
-SyslogIdentifier=app_hello
+WorkingDirectory=/app
+EnvironmentFile=/app/app.env
+ExecStart=/app/app
 
 [Install]
 WantedBy=multi-user.target
