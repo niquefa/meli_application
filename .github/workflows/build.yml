@@ -29,9 +29,6 @@ jobs:
       - name: Install jq
         run: sudo apt-get install -y jq
 
-      - name: Copy requirements.txt .
-        run: cp requirements.txt .
-
       - name: Install python requirements
         run: sudo pip3 install --no-cache-dir -r requirements.txt
 
