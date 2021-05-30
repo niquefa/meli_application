@@ -20,26 +20,26 @@ jobs:
       - name: Upgrade pip
         run: pip install --upgrade pip
 
-#      - name: Update system
-#        run: apt-get update
+      - name: Update system
+        run: sudo apt-get update
 
       - name: Update Build essential
-        run: apt-get install build-essential libssl-dev libffi-dev python-dev libjpeg-dev zlib1g-dev -y
+        run: sudo apt-get install build-essential libssl-dev libffi-dev python-dev libjpeg-dev zlib1g-dev -y
       
       - name: Install jq
-        run: apt-get install -y jq
+        run: sudo apt-get install -y jq
 
       - name: COPY requirements.txt .
         run: COPY requirements.txt .
 
       - name: Install python requirements
-        run: pip3 install --no-cache-dir -r requirements.txt
+        run: sudo pip3 install --no-cache-dir -r requirements.txt
 
       - name: Install pyinstaller
-        run: pip3 install pyinstaller
+        run: sudo pip3 install pyinstaller
 
       - name: Build executable File
-        run: pyinstaller --hidden-import="pg8000" --onefile app.py 
+        run: sudo pyinstaller --hidden-import="pg8000" --onefile app.py 
 
       - name: Set database credentials
         run: |
