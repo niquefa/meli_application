@@ -5,7 +5,7 @@ files:
     destination: /usr/lib/systemd/system/
   - source: app.env
     destination: /app/
-  - source: source.zip
+  - source: app
     destination: /app/
 hooks:
   BeforeInstall:
