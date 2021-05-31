@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  postgres:
+    image: mdillon/postgis:10-alpine
+    container_name: postgres_analyzer
+    ports:
+      - "25432:5432"
+    environment:
+      - POSTGRES_USER=analyzer
+      - POSTGRES_PASSWORD=analyzer
+    volumes:
+      - "postgres_data:/var/lib/postgresql"
+
+  dbmate:
+    image: amacneil/dbmate:v1.4.1
+    container_name: dbmate_analyzer
+    environment:
+      - DATABASE_URL=postgres://analyzer:analyzer@postgres:5432/analyzer?sslmode=disable
+      - PGPASSWORD=analyzer
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+    command: up
+
+volumes:
+  postgres_data:

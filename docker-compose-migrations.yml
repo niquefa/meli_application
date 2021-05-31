@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  dbmate:
+    image: amacneil/dbmate:v1.4.1
+    container_name: dbmate
+    environment:
+      - DATABASE_URL
+    volumes:
+      - .:/app
+    command: up
