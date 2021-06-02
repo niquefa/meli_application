@@ -14,24 +14,27 @@ In this document I explain several considerations: [go to document](https://docs
 
 * This app uses [docker](https://docs.docker.com/engine/install/) for local testing. 
 * For local testing, the next environmental varible should exists: ```export ENVIRONMENT="TEST"```
-* This project uses a virtual env, you should set up one with: [virtualenv](https://virtualenv.pypa.io/en/latest/).
+* A good idea for this project, is to use a virtual environment, you could set up one with: [virtualenv](https://virtualenv.pypa.io/en/latest/).
 * To activate it:`source env/bin/activate`
 * To install dependencies: `pip3 install -r requirements.txt`
-* To get the local enviroment running: ```docker-compose up -d``` and  ```docker-compose run dbmate```. This will create the database locally and do the initial scheme creation. 
+* To get the local enviroment running: ```docker-compose up -d``` 
+* To create the local database and db schema  ```docker-compose run dbmate```
 * To run unit testing: `./test.sh`
 * To locally start the service: `: ./run.sh`
 * To test locally the health endpoint just make a GET request to ```http://127.0.0.1:3000/health``` 
-* To test locally just make a POST request to ```http://127.0.0.1:3000/mutant``` with the next payload:
+* To test locally just make a POST request to ```http://127.0.0.1:3000/mutant``` with a payload similar to:
 
 ```Javascript
 {
     "dna":["ATAA","GAAC","AGAA","AAAT"]
 }
 ```
+For more details on payload constrainst, check the document mentioned above.
+
 * To test locally the stats endpoint just make a GET request to ```http://127.0.0.1:3000/stats```.
 
 ## Unit testing and test coverage
-To check the test coverage: (currently at 89% for the analyzer package), run `coverage run  -m unittest discover -v` and then run `coverage report`.
+To check the test coverage, run `coverage run  -m unittest discover -v` and then run `coverage report`.
 
 ```
 Name                          | Stmts | Miss | Cover
