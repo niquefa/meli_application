@@ -2,9 +2,9 @@
 
 **The problem description is private**
 
-# reference document
+# Reference document
 
-In this document I explain several considerations and futur work[go to document](https://docs.google.com/document/d/1ZZ_wVpf9ky831L_wC3IqByKQbIkgN4MtHrP81KQRGak/edit?usp=sharing)
+In this document I explain several considerations: [go to document](https://docs.google.com/document/d/1ZZ_wVpf9ky831L_wC3IqByKQbIkgN4MtHrP81KQRGak/edit?usp=sharing)
 
 ## Running locally
 
@@ -16,7 +16,7 @@ In this document I explain several considerations and futur work[go to document]
 * To get the local enviroment running: ```docker-compose up -d``` and  ```docker-compose run dbmate```. This will create the database locally and do the initial scheme creation. 
 * To run unit testing: `./test.sh`
 * To locally start the service: `: ./run.sh`
-* To test locally the helath endpoint just make a GET request to ```http://127.0.0.1:3000/health``` 
+* To test locally the health endpoint just make a GET request to ```http://127.0.0.1:3000/health``` 
 * To test locally just make a POST request to ```http://127.0.0.1:3000/mutant``` with the next payload:
 
 ```Javascript
@@ -24,7 +24,7 @@ In this document I explain several considerations and futur work[go to document]
     "dna":["ATAA","GAAC","AGAA","AAAT"]
 }
 ```
-* To test locally the stats endpoint just make a GET request to ```http://127.0.0.1:3000/stats``` with the next payload:
+* To test locally the stats endpoint just make a GET request to ```http://127.0.0.1:3000/stats```.
 
 ## Unit testing and test coverage
 To check the test coverage: (currently at 89% for the analyzer package), run `coverage run  -m unittest discover -v` and then run `coverage report`.
@@ -42,17 +42,11 @@ average coverage total                        |  89%
 ```
 
 ## Load test
-Load test file in jmeter. Inside the folder ```loadtest```. For load testing, in local, use it as it is.
+Load test file in jmeter. Inside the folder ```loadtest```. For load testing, in local, change user defined variables HOST and PORT for ```127.0.0.1``` and ```3000``` respectively.
 
-For load test the 
+For load testing the aws infrastructure, send me a message to get the host. 
 
 ## Black Prettier
 
 This code has been beautify using black: https://github.com/psf/black. 
 The command `black . -l 120`.
-
-## Work to do:
-
-* Make it scale to 1.000.000 request per second.
-* Make really heavy load test/stress test.
-* Make infrasctucture analysis and advices. 

@@ -12,17 +12,19 @@ app = Flask(__name__)
 
 @app.route("/health")
 def health_check():
-    return jsonify({"status": "the analyzer is healthy"})
+    return jsonify({"status": "the analyzer is healthy, nice problem! :)"})
 
 
 @app.route("/mutant", methods=["POST"])
 def mutant():
-    return controller.process_dna(request.get_json())
+    message_key, message, code = controller.process_dna(request.get_json())
+    return jsonify({message_key: message}), code
 
 
 @app.route("/stats")
 def stats():
-    return controller.get_stats()
+    mutants, humans, the_ratio = controller.get_stats()
+    return jsonify({"count_mutant_dna": mutants, "count_human_dna": humans, "ratio": the_ratio})
 
 
 if __name__ == "__main__":

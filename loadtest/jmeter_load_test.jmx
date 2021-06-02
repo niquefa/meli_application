@@ -24,8 +24,8 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1000</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+        <stringProp name="ThreadGroup.num_threads">2</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
@@ -585,12 +585,12 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="HOST" elementType="Argument">
             <stringProp name="Argument.name">HOST</stringProp>
-            <stringProp name="Argument.value">analyzer-load-balancer-1662288335.us-east-1.elb.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">127.0.0.1</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="PORT" elementType="Argument">
             <stringProp name="Argument.name">PORT</stringProp>
-            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.value">3000</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="MAX_DELAY" elementType="Argument">
@@ -604,7 +604,7 @@
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
-        <stringProp name="TestPlan.comments">Local test: HOST 127.0.0.1 and PORT 3000. AWS test: HOST analyzer-load-balancer-1662288335.us-east-1.elb.amazonaws.com and no PORT for aws test </stringProp>
+        <stringProp name="TestPlan.comments">Local test: HOST 127.0.0.1 and PORT 3000. AWS test: HOST ASK OWNER and no PORT for aws test </stringProp>
       </Arguments>
       <hashTree/>
     </hashTree>
