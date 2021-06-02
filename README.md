@@ -30,15 +30,20 @@ In this document I explain several considerations: [go to document](https://docs
 To check the test coverage: (currently at 89% for the analyzer package), run `coverage run  -m unittest discover -v` and then run `coverage report`.
 
 ```
-Name                          | Stmts  | Miss | Cover
+Name                          | Stmts | Miss | Cover
 -----------------------------------------------------
-analyzer/algorithms.py        |   29   |   5  |  83%
-analyzer/analyzer_utils.py    |   18   |   3  |  83%
-analyzer/config.py            |   28   |   3  |  89%
-analyzer/constants.py         |    5   |   0  | 100%
-analyzer/data_generator.py    |   10   |   0  | 100%
------------------------------------------------------
-average coverage total                        |  89% 
+analyzer/algorithms.py        |  29   | 5    |  83%
+analyzer/analyzer_utils.py    |  18   | 3    |  83%
+analyzer/config.py            |  28   | 3    |  89%
+analyzer/constants.py         |   5   | 0    | 100%
+analyzer/controller.py        |  29   | 7    |  76%
+analyzer/data_generator.py    |  10   | 0    | 100%
+analyzer/gateway.py           |  32   | 5    |  84%
+test/test_algorithms.py       |  24   | 1    |  96%
+test/test_analyzer_utils.py   |  15   | 1    |  93%
+test/test_controller.py       |  41   | 1    |  98%
+test/test_data_generator.py   |  13   | 1    |  92%
+test/test_gateway.py          |  22   | 1    |  95%
 ```
 
 ## Load test
