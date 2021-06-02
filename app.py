@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route("/health")
 def health_check():
-    return jsonify({"status": "the analyzer is healthy, nice problem! :)"})
+    return jsonify({"status": "the analyzer is healthy :)"})
 
 
 @app.route("/mutant", methods=["POST"])
@@ -29,10 +29,10 @@ def stats():
 
 if __name__ == "__main__":
 
-    if "ENVIRONMENT" in os.environ.keys() and os.environ["ENVIRONMENT"] == "TEST":
-        logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(level=logging.INFO)
+    if "ENVIRONMENT" in os.environ.keys() and os.environ["ENVIRONMENT"] == "TEST":        
+        logging.info("Running ENVIRONMENT TEST, HOST 127.0.0.1, and port 3000")
         app.run(host="127.0.0.1", port=3000)
     else:
-        print(f"ANALIZER RUNNING logging level = logging.DEBUG")
-        logging.basicConfig(level=logging.INFO)
+        logging.info("Runing at host 0.0.0.0, and port 80")    
         app.run(host="0.0.0.0", port=80)
