@@ -8,21 +8,19 @@ from analyzer import gateway
 
 
 def process_dna(json_payload):
+    if "dna" not in json_payload.keys() or len(json_payload.keys()) != 1:
+        return jsonify({"Request error": constants.UNPROCESSABLE_ENTITY}), 422
+
     dna = json_payload["dna"]
-    valid_process = True
+
+    if not analyzer_utils.is_valid(dna):
+        return jsonify({"Request error": constants.UNPROCESSABLE_ENTITY}), 422
+
     try:
-
-        if not analyzer_utils.is_valid(dna):
-            jsonify({"Request error": constants.UNPROCESSABLE_ENTITY}), 422
         is_mutant = algorithms.is_mutant(dna)
-
     except Exception as error_instance:
-        valid_process = False
-        analyzer_utils.log_error(error_instance, constants.UNPROCESSABLE_ENTITY)
-
-    if not valid_process:
-        analyzer_utils.log_error(error_instance, constants.UNSUPPORTED_DATA_TYPE)
-        return jsonify({"Unsuported data type error": constants.UNSUPPORTED_DATA_TYPE}), 415
+        analyzer_utils.log_error(error_instance, constants.ALGORITHM_LAYER_ERROR)
+        return jsonify({"Error": constants.ALGORITHM_LAYER_ERROR}), 502
 
     try:
         gateway.save_detection(dna, is_mutant)

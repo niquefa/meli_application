@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route("/health")
 def health_check():
-    return jsonify({"status": "the analyzer is healthy :) now on aws"})
+    return jsonify({"status": "the analyzer is healthy"})
 
 
 @app.route("/mutant", methods=["POST"])

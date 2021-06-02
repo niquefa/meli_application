@@ -7,7 +7,6 @@ class AlgorithmsTest(unittest.TestCase):
         self.assertFalse(algorithms.is_mutant(["ATG", "CAG", "TTA"]))
         self.assertFalse(algorithms.is_mutant(["CA", "TA"]))
         self.assertFalse(algorithms.is_mutant(["C"]))
-        self.assertFalse(algorithms.is_mutant([]))
         pass
 
     def test_algorithms_problem_description_samples(self):

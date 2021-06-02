@@ -1,18 +1,31 @@
 # Python exploration implementing a rest API
 
-**Here goes the problem description.**
+**The problem description is private**
+
+# reference document
+
+In this document I explain several considerations and futur work[go to document](https://docs.google.com/document/d/1ZZ_wVpf9ky831L_wC3IqByKQbIkgN4MtHrP81KQRGak/edit?usp=sharing)
 
 ## Running locally
 
-* This app uses [docker](https://docs.docker.com/engine/install/) 
+* This app uses [docker](https://docs.docker.com/engine/install/) for local testing. 
 * For local testing, the next environmental varible should exists: ```export ENVIRONMENT="TEST"```
-* This project uses a virtual env, you should set up one with: [virtualenv](https://virtualenv.pypa.io/en/latest/) to
+* This project uses a virtual env, you should set up one with: [virtualenv](https://virtualenv.pypa.io/en/latest/).
 * To activate it:`source env/bin/activate`
 * To install dependencies: `pip3 install -r requirements.txt`
-* To get the local enviroment running: ```docker-compose up -d``` and  ```docker-compose run dbmate```
+* To get the local enviroment running: ```docker-compose up -d``` and  ```docker-compose run dbmate```. This will create the database locally and do the initial scheme creation. 
 * To run unit testing: `./test.sh`
 * To locally start the service: `: ./run.sh`
-* 
+* To test locally the helath endpoint just make a GET request to ```http://127.0.0.1:3000/health``` 
+* To test locally just make a POST request to ```http://127.0.0.1:3000/mutant``` with the next payload:
+
+```Javascript
+{
+    "dna":["ATAA","GAAC","AGAA","AAAT"]
+}
+```
+* To test locally the stats endpoint just make a GET request to ```http://127.0.0.1:3000/stats``` with the next payload:
+
 ## Unit testing and test coverage
 To check the test coverage: (currently at 89% for the analyzer package), run `coverage run  -m unittest discover -v` and then run `coverage report`.
 
@@ -40,7 +53,6 @@ The command `black . -l 120`.
 
 ## Work to do:
 
-* Add load balancing.
-* Add task replication rules.
-* Make load test.
+* Make it scale to 1.000.000 request per second.
+* Make really heavy load test/stress test.
 * Make infrasctucture analysis and advices. 

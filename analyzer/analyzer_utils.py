@@ -5,7 +5,7 @@ from analyzer import constants
 
 def is_valid(dna_matrix):
     N = len(dna_matrix)
-    if N > constants.MAX_N_ALLOWED:
+    if N > constants.MAX_N_ALLOWED or N == 0:
         return False
     for row in dna_matrix:
         if N != len(row):
