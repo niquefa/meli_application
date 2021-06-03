@@ -30,9 +30,9 @@ def stats():
 if __name__ == "__main__":
 
     logging.basicConfig(level=logging.INFO)
-    if "ENVIRONMENT" in os.environ.keys() and os.environ["ENVIRONMENT"] == "TEST":        
+    if "ENVIRONMENT" in os.environ.keys() and os.environ["ENVIRONMENT"] == "TEST":
         logging.info("Running ENVIRONMENT TEST, HOST 127.0.0.1, and port 3000")
         app.run(host="127.0.0.1", port=3000)
     else:
-        logging.info("Runing at host 0.0.0.0, and port 80")    
+        logging.info("Runing at host 0.0.0.0, and port 80")
         app.run(host="0.0.0.0", port=80)

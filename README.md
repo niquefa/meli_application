@@ -4,7 +4,7 @@
 
 # Python version
 
-This repository is made in Python 3.6.9 and pip version 21.1.2
+This repository is made in Python 3.6.9 and pip3 (version 21.1.2). Make sure you have those installed in your system.
 
 # Reference document
 
@@ -12,9 +12,11 @@ In this document I explain several considerations: [go to document](https://docs
 
 ## Running locally
 
+* Note: This instructions are for linux systems. Windows or macOS will require some changes.
 * This app uses [docker](https://docs.docker.com/engine/install/) for local testing. 
 * For local testing, the next environmental varible should exists: ```export ENVIRONMENT="TEST"```
 * A good idea for this project, is to use a virtual environment, you could set up one with: [virtualenv](https://virtualenv.pypa.io/en/latest/).
+* To create the virtual environment: `virtualenv env`
 * To activate it:`source env/bin/activate`
 * To install dependencies: `pip3 install -r requirements.txt`
 * To get the local enviroment running: ```docker-compose up -d``` 
