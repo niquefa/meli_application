@@ -8,7 +8,7 @@ This repository is made in Python 3.6.9 and pip3 (version 21.1.2). Make sure you
 
 # Reference document
 
-In this document I explain several considerations: [go to document](https://docs.google.com/document/d/1ZZ_wVpf9ky831L_wC3IqByKQbIkgN4MtHrP81KQRGak/edit?usp=sharing)
+In this document I explain several considerations: [go to document](https://docs.google.com/document/d/1ZZ_wVpf9ky831L_wC3IqByKQbIkgN4MtHrP81KQRGak/edit?usp=sharing) This links is broken, but here I did explain several improvement option in scalability and robustness.
 
 ## Running locally
 
